@@ -1,4 +1,5 @@
-import { FormEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import type { SubmitEvent } from 'react';
 import { createSimulation } from '../api/simulations';
 import { getVehicles } from '../api/vehicles';
 import ErrorMessage from '../components/ErrorMessage';
@@ -50,7 +51,7 @@ export default function NewSimulationPage() {
     void loadVehicles();
   }, []);
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     setError('');
     setResult(null);
